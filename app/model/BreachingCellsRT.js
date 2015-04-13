@@ -1,0 +1,46 @@
+Ext.define('MPT.model.BreachingCellsRT', {
+    extend: 'Ext.data.Model',
+    fields: [{
+        name: 'RC',
+        type: 'string'
+    }, {
+        name: 'RNC_NAME',
+		type: 'string'
+    }, {
+        name: 'WBTS_NUMBER',
+        type: 'int'
+    },	{
+        name: 'WBTS_NAME',
+        type: 'string'
+    },	{
+        name: 'CELL_ID',
+        type: 'int'
+    },	{
+        name: 'WCEL_NAME',
+        type: 'string'
+    },	{
+        name: 'NE_TYPE',
+        type: 'string'
+    },	{
+        name: 'U9',
+        type: 'boolean'
+    },	{
+        name: 'STATE',
+        type: 'string'
+    },	{
+        name: 'TRIG_REASON',
+        type: 'string'
+    },	{
+        name: 'PRIME_REASON',
+        type: 'string'
+    },	{
+        name: 'SECOND_REASON',
+        type: 'string'
+    },	{
+        name: 'FAULT_TYPE',
+        type: 'string'
+    },	{
+		name: 'IP_ADDRESS',
+        type: 'string'
+    }]
+});

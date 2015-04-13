@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>MPT Portal</title>
+	<link rel="shortcut icon" href="favicon.ico" >
+	<!--link rel="stylesheet" type="text/css" href="css/mpt.css"-->
+	<link rel="stylesheet" type="text/css" href="../resources/css/ext-all.css" />
+	<!--link rel="stylesheet" type="text/css" href="portal.css"-->
+	<!--link rel="stylesheet" type="text/css" href="../resources/css/sink.css" /-->
+	<!--link rel="stylesheet" type="text/css" href="../resources/css/ext-neptune.css" /-->
+
+	<style type="text/css">
+		.x-fieldset-header .x-fieldset-header-text {
+    		float: center;
+    		padding: 1px 0; }
+	</style>
+	<!--style type="text/css">
+		.x-grid3-cell-selectable, .x-grid3-cell-selectable * {-moz-user-select: text!important; -khtml-user-select: text!important}
+	</style-->
+	
+</head>
+<body>
+<script type="text/javascript" src="../ext-all.js"></script>
+<!--script type="text/javascript" src="../selectableGrid.js"></script-->
+<script type="text/javascript" src="all-classes.js"></script>
+<!--script type="text/javascript" src="../ext-neptune-debug.js"></script-->
+
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
+

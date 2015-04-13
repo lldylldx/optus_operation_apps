@@ -1,0 +1,14 @@
+Ext.define('MPT.store.CellAvail.OptusLeadAvail',{
+	extend:'Ext.data.Store',
+	requires:'MPT.model.Avail3GCell',
+	model:'MPT.model.Avail3GCell',
+	autoLoad:true,
+	proxy:{
+		type:'ajax',
+		url:'data/CellAvail/optus_lead_cellAvail.json',
+		reader:{
+			type:'json',
+			root:'rows'
+		}
+	}
+});

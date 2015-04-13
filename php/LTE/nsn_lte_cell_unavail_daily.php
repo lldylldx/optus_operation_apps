@@ -1,0 +1,73 @@
+<?php
+
+require "../../../../../cgi-bin/php/db_conn.php";
+
+date_default_timezone_set('Australia/Sydney');
+$date = date('Y-m-d', time());
+$dir = "/home/appuser/web_data/$date/";
+//$file_out = 'nsnLteTailsHourly.json';
+
+//if(! file_exists($dir.$file_out) )
+//{
+
+$conn = conn_SLA();
+
+if (!$conn) 
+{
+   $m = oci_error();
+   echo $m['message'], "\n";
+   exit;
+}
+else {
+//  echo "Connected to SLA Oracle!";
+}
+
+$sql = "
+SELECT TO_CHAR(A.RECORD_TIME,'yyyymmdd hh24') AS RECORD_TIME,
+    B.STATE,
+    A.CELL_NAME,
+    a.unavail_seconds
+  FROM mpt_lte_kpis_nsn_D A,
+    sites_info_lte B
+  WHERE a.cell_name                      = b.cell_name
+  AND a.record_time = TRUNC(sysdate-1)
+  AND a.unavail_seconds                  > 0";
+
+$stid = oci_parse($conn, $sql);
+oci_execute($stid);
+
+$result = array();
+$sort_result = array();
+
+while (($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
+	$result[] = $row;
+	// var_dump($row);
+}
+oci_close($conn);
+
+$i = 0;
+foreach($result as $arr1)
+{
+	$sort_result[$i++] = $arr1['RECORD_TIME'];
+}
+asort($sort_result);
+array_multisort($result, $sort_result);
+
+$o = array(
+"success"=>true 
+,"totalCount"=>sizeof($result) 
+,"rows"=>$result
+);
+
+//$fp = fopen($dir.$file_out,'w');
+//fwrite($fp, json_encode($o));
+//fclose($fp);
+
+echo json_encode($o);
+//}
+//else {  //read data from local file...
+
+//	echo file_get_contents($dir.$file_out);
+//}
+?>
+
